@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Angular: Toggle a Class on Click</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-
-      <link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <title>JS Button Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-
 <body>
-  <div ng-app="classApp" ng-controller="classCtrl">
-    {{number}}
-    <div ng-repeat="item in items.slice(0, 10)">
-      {{item}} asdfdffd
+    <div ng-app="classApp" ng-controller="GameController">
+        
+        <div ng-hide="areAllOn" class="ng-cloak">
+            <input type="number" ng-model="myNumber" ng-change="inputGiven(myNumber)" name="inputName">
+        </div>
+        
+        <div class="container">
+          <div class="row" ng-repeat="a in myarray">
+            <br/>
+            <div class="col-xs-6 col-sm-4"></div>
+            <div class="col-xs-6 col-sm-4"><button class="btBtn" ng-class="{active: toggleArray[a]}" ng-click="toggleButton(a)" type="button">Toggle Me!!</button></div>
+            <!-- Optional: clear the XS cols if their content doesn't match in height -->
+            <div class="clearfix visible-xs-block"></div>
+            <div class="col-xs-6 col-sm-4"></div>
+          </div>
+        </div>
 
+        <div ng-show="areAllOn" class="ng-cloak">
+            <h1>Congrats you have wasted your time! :P</h1>
+        </div>
     </div>
-<button class="button" ng-class="{'active': isActive1}" ng-click="activeButton1()" type="button">Click Me to Toggle Class</button>
-    <button class="button" ng-class="{'active': isActive2}" ng-click="activeButton2()" type="button">Click Me to Toggle Class</button>
-    <button class="button" ng-class="{'active': isActive3}" ng-click="activeButton3()" type="button">Click Me to Toggle Class</button>
-    <button class="button" ng-class="{'active': isActive4}" ng-click="activeButton4()" type="button">Click Me to Toggle Class</button>
-  </div>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js'></script>
-
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js'></script>
     <script src="js/index.js"></script>
-
 </body>
+
 </html>

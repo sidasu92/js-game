@@ -1,25 +1,23 @@
 body {
-  background: #F8E1C2;
+  background: #4A96AD !important  ;
   -webkit-font-smoothing: antialiased;
   padding: 40px;
   text-align: center;
 }
 
-.button {
-  border: none;
-  padding: 14px;
-  color: #fff;
-  margin: 0 10px;
-  background: #3D3240;
-  font-weight: 700;
-  border-radius: 4px;
-}
-
 .active {
-  background: #FF735C;
+  background: #FF735C !important;
 }
 
-.disabled {
-  background: #eee;
-  color: #aaa;
+.btBtn {
+  color: #fff;
+  background-color: #7D1935;
+  border-color: #0275d8;
+  padding: .75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: .3rem;
+}
+
+.ng-cloak { 
+  display: none !important;
 }

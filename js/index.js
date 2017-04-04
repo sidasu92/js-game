@@ -1,39 +1,32 @@
-var classApp = angular.module('classApp', []);
+(function() {
+    let classApp = angular.module('classApp', []);
 
-classApp.controller('classCtrl', function ($scope) {
+    classApp.controller('GameController', function($scope) {
+    	$scope.areAllOn = false;
+        $scope.myNumber = 0;
+        $scope.myarray = new Array();
+        $scope.toggleArray = new Array();
+        $scope.inputGiven = function(myVal) {
+            $scope.myarray = new Array();
+            $scope.toggleArray = new Array();
+            for (let i = 0; i < myVal; i++) {
+                $scope.myarray[i] = i;
+                $scope.toggleArray[i] = false;
+            }
+        }
 
-	$scope.btnNo = Math.floor(Math.random()*3);
-	console.log($scope.btnNo);
-	$scope.isActive1 = false;
-	$scope.isActive2 = false;
-	$scope.isActive3 = false;
-	$scope.isActive4 = false;
-	$scope.number = 5;
-	$scope.activeButton1 = function() {
-		$scope.isActive1 = !$scope.isActive1;
-    $scope.isActive2 = !$scope.isActive2;
-  }
-	$scope.activeButton2 = function() {
-		$scope.isActive2 = !$scope.isActive2;
-    $scope.isActive3 = !$scope.isActive3;
-  }
-	$scope.activeButton3 = function() {
-		$scope.isActive3 = !$scope.isActive3;
-    $scope.isActive4 = !$scope.isActive4;
-  }
-	$scope.activeButton4 = function() {
-		$scope.isActive4 = !$scope.isActive4;
-    $scope.isActive1 = !$scope.isActive1;
-  }
+        $scope.btnNum = Math.floor(Math.random() * 9);
+        $scope.areAllOn = false;
+        $scope.toggleButton = function(curBtn) {
+            $scope.toggleArray[curBtn] = !$scope.toggleArray[curBtn];
+            $scope.toggleArray[$scope.btnNum] = !$scope.toggleArray[$scope.btnNum];
+            $scope.areAllOn = checkIfAllAreTrue();
+        };
 
-	$scope.markers = [];
-	for (var i = 0; i < 4; ++i) {
-	    $scope.markers[i] = false;
-	}
-	$scope.activeButton = function() {
-		// const activeTag = isActive;
-		// let currentActiveTag = activeTag;
-
-	};
-
-});
+        function checkIfAllAreTrue() {
+            for (let i = 0; i < $scope.toggleArray.length; i++)
+                if (!$scope.toggleArray[i]) return false;
+            return true;
+        }
+    });
+})();
