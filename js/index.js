@@ -9,6 +9,14 @@
         $scope.toggleArray = new Array();
         $scope.btnNum = 0;
 
+        //  intialise with 4 btns
+        for (let i = 0; i < 4; i++) {
+            $scope.myarray[i] = i;
+            $scope.toggleArray[i] = false;
+        }
+        //  randomise
+        $scope.btnNum = Math.floor(Math.random() * 4);
+
         //  method to initialise the arrays and impart randomness for one load
         $scope.inputGiven = function(myVal) {
             $scope.myarray = new Array();
